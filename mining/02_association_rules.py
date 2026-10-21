@@ -34,6 +34,11 @@ freq = fpgrowth(onehot, min_support=MIN_SUPPORT, use_colnames=True)
 rules = association_rules(freq, metric="lift", min_threshold=MIN_LIFT)
 rules = rules[rules["consequents"].apply(lambda s: s == frozenset({"CHURN"}))]
 rules = rules.sort_values("lift", ascending=False)
+# drop redundant rules: a longer rule is noise if a subset rule is about as confident
+rules = rules.reset_index(drop=True)
+keep = [not any(o["antecedents"] < r["antecedents"] and o["confidence"] >= r["confidence"] - 0.005
+                for _, o in rules.iterrows()) for _, r in rules.iterrows()]
+rules = rules[keep]
 rules["antecedents"] = rules["antecedents"].apply(lambda s: " & ".join(sorted(s)))
 out = rules[["antecedents", "support", "confidence", "lift"]]
 print(out.head(20).round(3).to_string(index=False))

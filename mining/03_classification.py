@@ -27,3 +27,11 @@ print("ROC-AUC rf:", round(roc_auc_score(yte, rf.predict_proba(Xte)[:, 1]), 3))
 imp = pd.Series(rf.feature_importances_, index=X.columns).sort_values(ascending=False)
 print(imp.head(15).round(3).to_string())
 imp.to_csv(FIG.parent / "feature_importance.csv")
+
+# behaviour-only model: drop transaction/subscription features to see what listening alone says
+TX = ["n_tx", "n_cancel", "auto_renew_rate", "avg_plan_days", "avg_paid", "avg_discount"]
+Xb = X.drop(columns=TX)
+Xtr, Xte, ytr, yte = train_test_split(Xb, y, test_size=0.25, stratify=y, random_state=SEED)
+rfb = RandomForestClassifier(300, min_samples_leaf=20, n_jobs=-1, random_state=SEED).fit(Xtr, ytr)
+print("ROC-AUC rf (listening/profile only):", round(roc_auc_score(yte, rfb.predict_proba(Xte)[:, 1]), 3))
+print(pd.Series(rfb.feature_importances_, index=Xb.columns).sort_values(ascending=False).head(8).round(3).to_string())

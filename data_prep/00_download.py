@@ -24,6 +24,10 @@ def main():
             with py7zr.SevenZipFile(archive) as z:
                 z.extractall(DATA)
             archive.unlink()
+            # archives nest the csv in subfolders (e.g. data/churn_comp_refresh/); flatten
+            for nested in DATA.rglob(f"{name}.csv"):
+                if nested.parent != DATA:
+                    nested.rename(DATA / nested.name)
         print("ready:", name, file=sys.stderr)
 
 
