@@ -79,4 +79,4 @@ python3 mining/02_association_rules.py    # FP-Growth, rule dẫn tới churn
 python3 mining/03_classification.py       # Decision Tree / Random Forest
 ```
 
-Trạng thái: các script mining mới chỉ được kiểm thử trên dữ liệu giả lập; chưa chạy trên dữ liệu KKBox thật (đang chờ chấp nhận rules trên Kaggle).
+Trạng thái: pipeline đã chạy trên dữ liệu KKBox thật. Kết quả nằm trong `report/` (`report.docx`, `slides.pptx`, hình và csv); `python3 report/build_report.py` dựng lại báo cáo và slide từ kết quả mới nhất. Bản nháp cần cả nhóm rà soát trước khi nộp.
