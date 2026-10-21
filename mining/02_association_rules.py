@@ -23,7 +23,7 @@ items = pd.DataFrame({
     "logs": df["has_logs"].map({1: "has_logs", 0: "no_logs"}),
     "via": "via=" + df["registered_via"].astype(str),
     "gender": "gender=" + df["gender"].astype(str),
-    "listening": q("total_secs" if "total_secs" in df else "avg_secs", ["low", "mid", "high"]),
+    "listening": q("avg_secs",["low", "mid", "high"]),
     "skip": q("skip_ratio", ["low", "mid", "high"]),
     "plan": pd.cut(df["avg_plan_days"], [-1, 0, 30, 10_000], labels=["plan=none", "plan=<=30d", "plan=>30d"]),
     "churn": df["is_churn"].map({1: "CHURN", 0: "stay"}),

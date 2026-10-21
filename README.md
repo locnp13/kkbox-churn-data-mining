@@ -68,4 +68,15 @@ Mọi notebook mining đọc bảng feature từ `data_prep/` để số liệu 
 
 ## Cách chạy
 
-Chưa có code. Sẽ bổ sung hướng dẫn cài đặt và chạy khi có pipeline đầu tiên.
+Yêu cầu: Python 3.13, `pip install duckdb py7zr pandas scikit-learn mlxtend matplotlib pyarrow`, và đã chấp nhận rules của competition trên Kaggle (token ở `~/.kaggle/`).
+
+```
+python3 data_prep/00_download.py          # tải và giải nén 4 file cần dùng vào data/
+python3 data_prep/01_build_features.py    # tạo data/features.parquet (biến N_PER_CLASS chỉnh cỡ mẫu)
+python3 analysis/01_eda.py                # EDA, hình vào report/figures/
+python3 mining/01_clustering.py           # K-Means, profile cụm
+python3 mining/02_association_rules.py    # FP-Growth, rule dẫn tới churn
+python3 mining/03_classification.py       # Decision Tree / Random Forest
+```
+
+Trạng thái: các script mining mới chỉ được kiểm thử trên dữ liệu giả lập; chưa chạy trên dữ liệu KKBox thật (đang chờ chấp nhận rules trên Kaggle).
