@@ -53,8 +53,15 @@ SECTIONS = [
   "Nhóm 'Đã lỡ hạn nhưng vẫn nghe' (cụm 0, 11,7%, churn 95,8%): vẫn còn hoạt động nghe, nên chiến dịch kéo quay lại (ưu đãi tái đăng ký) có cơ hội tốt nhất.",
   "Kênh đăng ký 3 và 4 có churn cao nhất (65–73%): xem lại trải nghiệm onboarding và chất lượng người dùng của các kênh này; kênh 7 giữ chân tốt hơn (29%).",
   "Khuyến nghị giám sát: người dùng từng hủy và đã tắt tự gia hạn là nhóm cảnh báo sớm nhất (churn 93% và 88%).",
-  "Lưu ý khi áp dụng: nhiều tín hiệu mạnh xuất hiện vì gần định nghĩa nhãn. Cần thử lại trên dữ liệu với cửa sổ thời gian tách rời giữa quan sát và dự báo để xác nhận giá trị dự báo."]),
+  "Lưu ý khi áp dụng: nhiều tín hiệu mạnh xuất hiện vì gần định nghĩa nhãn. Cần thử lại trên dữ liệu với cửa sổ thời gian tách rời giữa quan sát và dự báo để xác nhận giá trị dự báo.",
+  "Từ phần bonus: theo dõi người dùng có xu hướng nghe giảm mạnh hoặc im lặng quá 7 ngày như cảnh báo sớm, và gửi nhắc nhở hoặc gợi ý nhạc trước khi tới hạn gia hạn."]),
+ ("8. Bonus – Advanced Techniques", [
+  "Feature engineering theo thời gian (pattern theo chuỗi ngày): từ log hằng ngày của tháng 3/2017 tạo hai biến: xu hướng nghe (log tổng số giây 10 ngày cuối trừ 10 ngày đầu) và số ngày kể từ lần nghe cuối. Đây là pattern theo thời gian đơn giản, không phải khai phá chuỗi tuần tự đầy đủ.",
+  "Phát hiện: người có xu hướng nghe giảm mạnh churn 77,3% (29.867 người) so với 34,1% ở nhóm tăng mạnh. Người không nghe 15 ngày trở lên churn 82,0%, so với 37,3% ở nhóm nghe trong 1 ngày gần nhất. Hai biến mới đưa ROC-AUC của mô hình chỉ dùng nghe và hồ sơ từ 0,680 lên 0,743, cho thấy sự suy giảm hoạt động là tín hiệu cảnh báo sớm hữu ích hơn mức nghe tuyệt đối.",
+  "So sánh giữa các tập con: mô hình hành vi phân biệt tốt nhất ở kênh 7 (AUC 0,826, churn 29%) và người mới dưới 1 năm (0,798); kém hơn ở người gắn bó từ 4 năm (0,684) và kênh 9 (0,714). Nghĩa là với người dùng lâu năm, hành vi nghe nói ít về việc họ có rời đi hay không.",
+  "Giảm chiều: PCA 5 thành phần giải thích 58%, 11%, 9%, 8%, 7% phương sai (thành phần đầu thống trị, chủ yếu là cường độ nghe). UMAP (hình dưới) cho thấy churn và không churn trộn lẫn trong khối chính, chỉ tách nhẹ ở rìa. Điều này khớp với AUC vừa phải: hành vi nghe đơn lẻ không tách được churn, nên cần kết hợp tín hiệu giao dịch và xu hướng."], [F / "umap_churn.png"]),
 ]
+
 
 # ---- docx
 d = Document()
@@ -110,6 +117,7 @@ slide("Tín hiệu chính từ EDA", ["Từng hủy: churn 93% (so với 41%)", 
 slide("5 phân khúc người dùng (K-Means, silhouette 0,52)", [f"{NAMES[int(r.cluster)]}: {int(r['size']):,} người, churn {r.churn_rate:.0%}" for _, r in prof.iterrows()], F / "clusters_pca.png")
 slide("Association rules (FP-Growth)", [f"{r.antecedents}: conf {r.confidence:.2f}, lift {r.lift:.2f}" for _, r in rules.head(5).iterrows()] + ["Lưu ý: nhiều rule phản ánh định nghĩa churn"])
 slide("Classification: đọc cho đúng", ["Random Forest đủ biến: ROC-AUC 0,977 (gần nhãn)", "Chỉ hành vi nghe và hồ sơ: ROC-AUC 0,761", "Dùng để giải thích, không để khoe độ chính xác"])
+slide("Bonus: xu hướng nghe theo thời gian", ["Nghe giảm mạnh: churn 77% (so với 34% khi tăng mạnh)", "Im lặng từ 15 ngày: churn 82%", "Thêm 2 biến thời gian: AUC (chỉ hành vi) 0,680 → 0,743", "Kênh 7 và người mới: hành vi dự báo tốt hơn; người lâu năm kém hơn"], F / "umap_churn.png")
 slide("Khuyến nghị", ["Bảo vệ nhóm đang hoạt động: nhắc gia hạn, giữ auto-renew", "Kích hoạt lại nhóm trả phí nhưng không nghe", "Ưu đãi tái đăng ký cho nhóm đã lỡ hạn nhưng vẫn nghe", "Xem lại onboarding của kênh 3 và 4", "Hạn chế: mẫu cân bằng, nhãn gần các biến giao dịch"])
 pr.save(R / "slides.pptx")
 print("built")

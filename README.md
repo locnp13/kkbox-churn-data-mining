@@ -77,6 +77,8 @@ python3 analysis/01_eda.py                # EDA, hình vào report/figures/
 python3 mining/01_clustering.py           # K-Means, profile cụm
 python3 mining/02_association_rules.py    # FP-Growth, rule dẫn tới churn
 python3 mining/03_classification.py       # Decision Tree / Random Forest
+python3 mining/04_bonus.py                # bonus: biến theo thời gian, so sánh tập con, PCA/UMAP
+python3 report/build_report.py            # dựng report.docx và slides.pptx
 ```
 
 Trạng thái: pipeline đã chạy trên dữ liệu KKBox thật. Kết quả nằm trong `report/` (`report.docx`, `slides.pptx`, hình và csv); `python3 report/build_report.py` dựng lại báo cáo và slide từ kết quả mới nhất. Bản nháp cần cả nhóm rà soát trước khi nộp.
