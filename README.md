@@ -27,13 +27,14 @@ Do giới hạn ổ đĩa, nhóm **không dùng `user_logs.csv` gốc** (~28 GB)
 | Thành viên | Vai trò | Phần đề (trọng số) | Công việc |
 |---|---|---|---|
 | Lộc Nguyễn Phúc | Data engineering, trưởng nhóm kỹ thuật | 2 (5%), 3 (10%) | Tải và giải nén dữ liệu, aggregate log, lấy mẫu, làm sạch, xuất bảng feature chung |
-| Khánh Phạm Duy Văn | Business và báo cáo | 1 (15%), 7 (10%) | Bối cảnh, bài toán, assumptions/limitations, tổng hợp insight và khuyến nghị, ghép báo cáo và slide |
+| Khánh Phạm Duy Văn | Business và báo cáo | 1 (15%), 7 (10%) | Bối cảnh, bài toán, assumptions/limitations, tổng hợp insight và khuyến nghị, ghép báo cáo |
 | Bình Chu Đức | EDA | 4 (15%) | Phân phối, so sánh churn theo nhóm, xu hướng, hình vẽ, kết luận dẫn tới chọn kỹ thuật |
-| Quân Đoàn Đàm | Clustering | 5, 6 (phần clustering) | K-Means, Hierarchical/DBSCAN, chọn k, mô tả cụm, churn rate theo cụm |
-| Hạnh Nguyễn Thị Hồng | Association rules, sequential | 5, 6 (phần rules) | Rời rạc hóa feature, FP-Growth, lọc và diễn giải rule, sequential pattern nếu còn thời gian |
-| Tùng Trần | Classification và bonus | 5, 6 (phần classification), 8 (+10%) | Decision Tree/Random Forest, feature importance, kiểm tra leakage, PCA/UMAP, feature engineering |
+| Quân Đoàn Đàm | Clustering | 5, 6 (phần clustering) | K-Means, Hierarchical/DBSCAN, chọn k, mô tả cụm, churn rate theo cụm, `cluster_quality.csv`, `cluster_drilldown.csv` |
+| Hạnh Nguyễn Thị Hồng | Association rules | 5, 6 (phần rules) | Rời rạc hóa feature, FP-Growth, lọc và diễn giải rule, độ nhạy rule (`rule_sensitivity.csv`) |
+| Tùng Trần | Classification | 5, 6 (phần classification) | Decision Tree/Random Forest, feature importance, kiểm tra leakage |
+| Phùng Quý Quốc | Temporal/sequential, bonus, validation, slide | 5 (sequential), 8 (+10%), 6 (so sánh), slide | Sequential/temporal pattern (`bonus_trend.csv`, `bonus_idle.csv`), feature engineering, so sánh subset, PCA/UMAP (`mining/04_bonus.py`), validation chéo (`mining/05_validation.py`, `algorithm_comparison.csv`), dàn slide và thuyết trình |
 
-Phần 6 (Evaluation, 15%): mỗi người tự viết phần đánh giá cho kỹ thuật của mình; Khánh ghép và viết phần so sánh điểm mạnh, yếu giữa các phương pháp.
+Phần 6 (Evaluation, 15%): mỗi người tự viết phần đánh giá cho kỹ thuật của mình; Quốc cung cấp số liệu so sánh giữa các phương pháp, Khánh ghép và viết phần kết luận điểm mạnh, yếu.
 
 ## Cấu trúc repo (dự kiến)
 
