@@ -1,0 +1,109 @@
+{
+  "results": [
+    {
+      "configuration": "A. baseline (03_classification)",
+      "n_features": 36,
+      "n_trees": 292,
+      "roc_auc": 0.8700629674707527,
+      "pr_auc": 0.6031416615313718,
+      "lift@10%": 6.088056796060918,
+      "recall@10%": 0.6088056796060919,
+      "fit_s": 13.689429759979248,
+      "delta_auc": 0.0,
+      "delta_ci_low": 0.0,
+      "delta_ci_high": 0.0
+    },
+    {
+      "configuration": "B. + payment-history features",
+      "n_features": 49,
+      "n_trees": 307,
+      "roc_auc": 0.8724498641997278,
+      "pr_auc": 0.606388571252217,
+      "lift@10%": 6.088285812435589,
+      "recall@10%": 0.6088285812435589,
+      "fit_s": 17.451244592666626,
+      "delta_auc": 0.002386896728975074,
+      "delta_ci_low": 0.002083761862883171,
+      "delta_ci_high": 0.002630783672871012
+    },
+    {
+      "configuration": "C. tuned hyper-parameters",
+      "n_features": 36,
+      "n_trees": 264,
+      "roc_auc": 0.8706775218375581,
+      "pr_auc": 0.6036367060204773,
+      "lift@10%": 6.09126302530631,
+      "recall@10%": 0.6091263025306309,
+      "fit_s": 13.229300737380981,
+      "delta_auc": 0.0006145543668053532,
+      "delta_ci_low": 0.0005029147982618471,
+      "delta_ci_high": 0.0007477417332470343
+    },
+    {
+      "configuration": "D. features + tuning",
+      "n_features": 49,
+      "n_trees": 219,
+      "roc_auc": 0.8738330654812626,
+      "pr_auc": 0.6062819360569793,
+      "lift@10%": 6.085537615939539,
+      "recall@10%": 0.6085537615939539,
+      "fit_s": 14.418160676956177,
+      "delta_auc": 0.0037700980105098703,
+      "delta_ci_low": 0.0034815173946763393,
+      "delta_ci_high": 0.004029403825276182
+    }
+  ],
+  "tuned_params_baseline": {
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_child_samples": 200,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.001,
+    "min_split_gain": 0.0,
+    "subsample_freq": 1
+  },
+  "tuned_params_new": {
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_child_samples": 200,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.001,
+    "min_split_gain": 0.0,
+    "subsample_freq": 1
+  },
+  "n_trials": 30,
+  "tune_sample": 400000,
+  "new_features": [
+    "n_autorenew_switches",
+    "n_auto_to_manual",
+    "n_lapses",
+    "max_lapse_days",
+    "mean_days_between_tx",
+    "sd_days_between_tx",
+    "n_method_switches",
+    "mean_price_per_day",
+    "last_price_per_day",
+    "auto_renew_last3",
+    "cancels_last3",
+    "n_distinct_plans",
+    "covered_span_days"
+  ],
+  "new_feature_gain_share": 0.16720334612848434,
+  "top_gain": {
+    "last_auto_renew": 0.32224209142589133,
+    "last_is_cancel": 0.16573444766148163,
+    "auto_renew_last3": 0.09208620030202673,
+    "days_to_expire": 0.08106819586117485,
+    "n_tx_180d": 0.03808923705514605,
+    "last_payment_method": 0.031183852908027134,
+    "auto_renew_rate": 0.03111148069088666,
+    "covered_span_days": 0.021068640698330306,
+    "weekly_cv": 0.019287736280148626,
+    "active_days_last14": 0.017662403945825578
+  },
+  "runtime_s": 572.3179309368134
+}

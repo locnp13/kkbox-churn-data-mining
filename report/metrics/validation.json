@@ -1,0 +1,100 @@
+{
+  "leakage_audit": [
+    {
+      "feature_set": "clean (cutoff T)",
+      "roc_auc": 0.920285010059999,
+      "pr_auc": 0.7364232451704145,
+      "auc_inflation_vs_clean": 0.0,
+      "delta_ci_low": 0.0,
+      "delta_ci_high": 0.0
+    },
+    {
+      "feature_set": "clean + March listening logs",
+      "roc_auc": 0.9480277658919668,
+      "pr_auc": 0.8049857092121222,
+      "auc_inflation_vs_clean": 0.027742755831967836,
+      "delta_ci_low": 0.026641879985039356,
+      "delta_ci_high": 0.028681708574096233
+    },
+    {
+      "feature_set": "clean + March transactions",
+      "roc_auc": 0.9893203665873325,
+      "pr_auc": 0.9242934896149818,
+      "auc_inflation_vs_clean": 0.0690353565273335,
+      "delta_ci_low": 0.06743759742620692,
+      "delta_ci_high": 0.07077772482181517
+    },
+    {
+      "feature_set": "v1 recipe (unfiltered *_v2 files)",
+      "roc_auc": 0.9756126932903697,
+      "pr_auc": 0.9000478650345087,
+      "auc_inflation_vs_clean": 0.05532768323037074,
+      "delta_ci_low": 0.05343722611904478,
+      "delta_ci_high": 0.057238360283797696
+    },
+    {
+      "feature_set": "listening only, clean",
+      "roc_auc": 0.5798082601743925,
+      "pr_auc": 0.13657572908758686,
+      "auc_inflation_vs_clean": -0.3404767498856065,
+      "delta_ci_low": -0.34400846848105343,
+      "delta_ci_high": -0.33599503181474055
+    },
+    {
+      "feature_set": "listening only, March logs (v1)",
+      "roc_auc": 0.6542591187501697,
+      "pr_auc": 0.25511929868330735,
+      "auc_inflation_vs_clean": -0.26602589130982923,
+      "delta_ci_low": -0.2699519246942425,
+      "delta_ci_high": -0.2621434247893299
+    }
+  ],
+  "leaky_rule_no_march_tx": {
+    "support": 0.04598953612919173,
+    "confidence": 0.8090428629014198,
+    "lift": 8.995170710669443,
+    "share_of_churners_covered": 0.41368372838657963
+  },
+  "comparison": [
+    {
+      "technique": "K-Means (k=3)",
+      "type": "unsupervised / clustering",
+      "quality": "silhouette 0.297, DB 1.49, bootstrap ARI nan",
+      "runtime_s": 89.0972375869751,
+      "interpretability": "high (centroid profiles)",
+      "business_use": "segment-level strategy, campaign targeting"
+    },
+    {
+      "technique": "FP-Growth association rules",
+      "type": "pattern-based",
+      "quality": "25 productive churn rules (q<0.01, lift>=1.5), holdout lift corr 1.00",
+      "runtime_s": 13.927967309951782,
+      "interpretability": "very high (if-then rules)",
+      "business_use": "trigger conditions for retention actions"
+    },
+    {
+      "technique": "PrefixSpan sequential patterns",
+      "type": "pattern-based / sequential",
+      "quality": "30 significant patterns",
+      "runtime_s": 22.05,
+      "interpretability": "high (ordered event chains)",
+      "business_use": "early-warning journeys before churn"
+    },
+    {
+      "technique": "LightGBM (supporting)",
+      "type": "supervised / classification",
+      "quality": "out-of-time ROC-AUC 0.870, PR-AUC 0.603, lift@10% 6.09",
+      "runtime_s": 19.147318363189697,
+      "interpretability": "medium (SHAP needed)",
+      "business_use": "ranking users for a limited retention budget"
+    },
+    {
+      "technique": "Logistic regression (supporting)",
+      "type": "supervised / classification",
+      "quality": "out-of-time ROC-AUC 0.837, PR-AUC 0.562",
+      "runtime_s": 80.91311240196228,
+      "interpretability": "high (coefficients)",
+      "business_use": "transparent baseline"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "n_users": 100000,
+  "dropped_redundant": [
+    "total_hours",
+    "skip_ratio",
+    "weekly_cv"
+  ],
+  "kept": [
+    "n_tx",
+    "n_cancel",
+    "auto_renew_rate",
+    "discount_rate",
+    "last_plan_days",
+    "last_paid",
+    "days_to_expire",
+    "tenure_days",
+    "active_days",
+    "complete_ratio",
+    "avg_unique_songs",
+    "listen_trend",
+    "days_since_last_listen"
+  ],
+  "n_onehot": 15,
+  "results": [
+    {
+      "variant": "A. baseline (16 biến, trọng số bằng nhau)",
+      "k": 3,
+      "silhouette": 0.23362592944723837,
+      "davies_bouldin": 1.779038240520695,
+      "stability_ari": 0.9945541613646675,
+      "met_rule": true,
+      "churn_spread": 0.32013553299602215,
+      "nmi_with_churn": 0.08248632191135219,
+      "long_plan_segment_found": true,
+      "churn_in_riskiest": 0.36337719298245613,
+      "share_riskiest": 0.1368,
+      "ari_vs_A": 1.0
+    },
+    {
+      "variant": "B. trọng số theo nhóm biến",
+      "k": 6,
+      "silhouette": 0.18450079813865192,
+      "davies_bouldin": 1.5452131342961353,
+      "stability_ari": 0.8579559494210499,
+      "met_rule": true,
+      "churn_spread": 0.764398538408692,
+      "nmi_with_churn": 0.04658076631556697,
+      "long_plan_segment_found": true,
+      "churn_in_riskiest": 0.8321969696969697,
+      "share_riskiest": 0.0264,
+      "ari_vs_A": 0.18747722720520213
+    },
+    {
+      "variant": "C. bỏ biến trùng (3 biến)",
+      "k": 5,
+      "silhouette": 0.19998962394512698,
+      "davies_bouldin": 1.530518059989241,
+      "stability_ari": 0.9557884673009173,
+      "met_rule": true,
+      "churn_spread": 0.7737204517475204,
+      "nmi_with_churn": 0.06374065085886971,
+      "long_plan_segment_found": true,
+      "churn_in_riskiest": 0.8327178729689808,
+      "share_riskiest": 0.02708,
+      "ari_vs_A": 0.3200304555682045
+    },
+    {
+      "variant": "D. B + kênh đăng ký và phương thức thanh toán",
+      "k": 7,
+      "silhouette": 0.13683061166871502,
+      "davies_bouldin": 1.7929594999767817,
+      "stability_ari": 0.8127757096126227,
+      "met_rule": true,
+      "churn_spread": 0.8057801982187911,
+      "nmi_with_churn": 0.061129961279815785,
+      "long_plan_segment_found": true,
+      "churn_in_riskiest": 0.8381435257410297,
+      "share_riskiest": 0.02564,
+      "ari_vs_A": 0.24972123803188107
+    }
+  ],
+  "runtime_s": 88.35635137557983
+}

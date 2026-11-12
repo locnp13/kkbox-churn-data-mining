@@ -1,0 +1,37 @@
+|--- last_auto_renew <= 0.50
+|   |--- n_tx_180d <= 3.50
+|   |   |--- total_songs <= 356.50
+|   |   |   |--- last_plan_days <= 2.00
+|   |   |   |   |--- weights: [1442.00, 660.00] class: 0
+|   |   |   |--- last_plan_days >  2.00
+|   |   |   |   |--- weights: [5437.00, 9889.00] class: 1
+|   |   |--- total_songs >  356.50
+|   |   |   |--- days_to_expire <= 29.00
+|   |   |   |   |--- weights: [25289.00, 13766.00] class: 0
+|   |   |   |--- days_to_expire >  29.00
+|   |   |   |   |--- weights: [266.00, 1737.00] class: 1
+|   |--- n_tx_180d >  3.50
+|   |   |--- days_to_expire <= 36.50
+|   |   |   |--- weekly_cv <= 0.53
+|   |   |   |   |--- weights: [36430.00, 6099.00] class: 0
+|   |   |   |--- weekly_cv >  0.53
+|   |   |   |   |--- weights: [7911.00, 3243.00] class: 0
+|   |   |--- days_to_expire >  36.50
+|   |   |   |--- weights: [422.00, 1816.00] class: 1
+|--- last_auto_renew >  0.50
+|   |--- last_is_cancel <= 0.50
+|   |   |--- last_paid <= 49.50
+|   |   |   |--- weights: [1469.00, 752.00] class: 0
+|   |   |--- last_paid >  49.50
+|   |   |   |--- n_tx <= 13.50
+|   |   |   |   |--- weights: [326449.00, 9625.00] class: 0
+|   |   |   |--- n_tx >  13.50
+|   |   |   |   |--- weights: [522454.00, 8351.00] class: 0
+|   |--- last_is_cancel >  0.50
+|   |   |--- active_days_last14 <= 4.50
+|   |   |   |--- total_songs <= 104.50
+|   |   |   |   |--- weights: [156.00, 4181.00] class: 1
+|   |   |   |--- total_songs >  104.50
+|   |   |   |   |--- weights: [291.00, 1926.00] class: 1
+|   |   |--- active_days_last14 >  4.50
+|   |   |   |--- weights: [1444.00, 1426.00] class: 0

@@ -1,0 +1,6 @@
+{
+  "unique_users_both_cohorts": 1082190,
+  "user_logs_rows_scanned": 392106543,
+  "log_rows_kept_in_window": 40933306,
+  "source": "data_prep/stream_logs.py output (rows scanned) and data/logs_window.parquet"
+}

@@ -1,0 +1,28 @@
+{
+  "feb": {
+    "n_users_with_transactions": 990836,
+    "n_users_with_same_day_ties": 11704,
+    "share_users_with_same_day_ties": 0.011812247435498913,
+    "max_share_changed_per_field": {
+      "is_auto_renew": 0.0018499529690079893,
+      "is_cancel": 0.007890306771251751,
+      "payment_plan_days": 0.0019478500983008287,
+      "actual_amount_paid": 0.0072605355477596695,
+      "membership_expire_date": 0.011477176848640946
+    },
+    "max_churn_rate_diff": 0.26866583289504253
+  },
+  "mar": {
+    "n_users_with_transactions": 968436,
+    "n_users_with_same_day_ties": 12599,
+    "share_users_with_same_day_ties": 0.013009636155615859,
+    "max_share_changed_per_field": {
+      "is_auto_renew": 0.0017657336158507118,
+      "is_cancel": 0.00816058056495215,
+      "payment_plan_days": 0.0019144269729749824,
+      "actual_amount_paid": 0.007608143439525173,
+      "membership_expire_date": 0.012666815360023792
+    },
+    "max_churn_rate_diff": 0.2790966554846568
+  }
+}

@@ -1,0 +1,16 @@
+duckdb==2.0.0
+kaggle==2.2.5
+lightgbm==4.7.0
+matplotlib==3.11.0
+mlxtend==0.25.0
+numpy==2.4.6
+pandas==3.0.6
+py7zr==1.1.4
+pyarrow==26.0.1
+python-docx==1.2.0
+python-pptx==1.0.2
+scikit-learn==1.9.1
+scipy==1.17.1
+shap==0.51.0
+umap-learn==0.5.12
+optuna==5.0.0

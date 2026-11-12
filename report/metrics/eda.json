@@ -1,0 +1,87 @@
+{
+  "n_mar": 970960,
+  "churn_mar": 0.08994191315811156,
+  "n_feb": 992931,
+  "churn_feb": 0.06392287077349786,
+  "share_no_logs": 0.19411098294471452,
+  "share_no_tx": 0.0025994891653621233,
+  "age_missing": 0.6020505479113455,
+  "gender_unknown": 0.48618068715498064,
+  "top_effects": [
+    {
+      "feature": "auto_renew_rate",
+      "auc_effect": 0.24929588544942904
+    },
+    {
+      "feature": "last_auto_renew",
+      "auc_effect": 0.26238060202441194
+    },
+    {
+      "feature": "last_list_price",
+      "auc_effect": 0.7299318571476647
+    },
+    {
+      "feature": "last_paid",
+      "auc_effect": 0.7053400668707179
+    },
+    {
+      "feature": "n_tx_180d",
+      "auc_effect": 0.29977928084584526
+    },
+    {
+      "feature": "days_since_last_tx",
+      "auc_effect": 0.6775637796135643
+    },
+    {
+      "feature": "n_tx",
+      "auc_effect": 0.3545749564434961
+    },
+    {
+      "feature": "last_plan_days",
+      "auc_effect": 0.6021340229268638
+    }
+  ],
+  "cramers_v": {
+    "plan": 0.43735463595988944,
+    "auto_renew": 0.42347369478871777,
+    "cancelled_last": 0.26812813720613177,
+    "expire": 0.21511265748385883,
+    "registered_via": 0.20233801647312047,
+    "gender": 0.10802362064149697,
+    "trend": 0.04789980433580811,
+    "tenure_y": 0.03848610741728076,
+    "idle": 0.03038991453004306
+  },
+  "top_correlated_pairs": [
+    [
+      "last_list_price",
+      "last_paid",
+      0.9918697638602574
+    ],
+    [
+      "total_songs",
+      "total_hours",
+      0.9911750985521066
+    ],
+    [
+      "active_days",
+      "weekly_cv",
+      0.9508409240591041
+    ],
+    [
+      "active_days",
+      "total_songs",
+      0.941099434949733
+    ],
+    [
+      "complete_ratio",
+      "skip_ratio",
+      0.9408680724053307
+    ],
+    [
+      "active_days",
+      "total_hours",
+      0.9344922910093462
+    ]
+  ]
+}

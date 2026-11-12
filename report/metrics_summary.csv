@@ -1,0 +1,38 @@
+aspect,question,metric,value,reference,verdict,meaning
+1. Tính hợp lệ,Kết quả có dùng nhầm thông tin tương lai hoặc dữ liệu lỗi không?,Giao dịch muộn nhất so với mốc quan sát,20170228,≤ 20170228,đạt,Không có giao dịch nào sau mốc được dùng
+1. Tính hợp lệ,Kết quả có dùng nhầm thông tin tương lai hoặc dữ liệu lỗi không?,AUC tăng ảo nếu dùng giao dịch tháng nhãn,0.0690353565273335,phải đo được rồi loại bỏ,tham khảo,Độ lớn của lỗi mà thiết kế mốc quan sát tránh được
+1. Tính hợp lệ,Kết quả có dùng nhầm thông tin tương lai hoặc dữ liệu lỗi không?,AUC tăng ảo của cách làm phiên bản 1,0.05532768323037074,phải đo được rồi loại bỏ,tham khảo,Mức kết quả cũ bị thổi phồng
+1. Tính hợp lệ,Kết quả có dùng nhầm thông tin tương lai hoặc dữ liệu lỗi không?,Bản ghi gói 0 ngày trong dữ liệu gốc,615360,sau xử lý không còn gói 0 ngày trong đặc trưng,đạt,Kiểm tra: đặc trưng “độ dài gói cuối” không còn giá trị 0
+1. Tính hợp lệ,Kết quả có dùng nhầm thông tin tương lai hoặc dữ liệu lỗi không?,Ngày hết hạn hỏng (trước 2015) trong dữ liệu gốc,7271,sau xử lý không còn hạn trước 2015,đạt,Kiểm tra: số ngày còn hạn không còn giá trị trước 01/2015
+1. Tính hợp lệ,Kết quả có dùng nhầm thông tin tương lai hoặc dữ liệu lỗi không?,Thâm niên âm sau xử lý,0,0,đạt,Không còn ngày đăng ký sau mốc quan sát
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,Silhouette (phân cụm),0.2118498327193212,"> 0,5 rõ; 0,25–0,5 vừa; < 0,25 yếu",chưa đạt,Các nhóm khách tách nhau rõ đến đâu
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,Davies–Bouldin (phân cụm),1.3635289910601867,< 1 tốt; càng thấp càng tốt,chưa đạt,Mức chồng lấn giữa các nhóm
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,"Số luật lift ≥ 1,5 vượt kiểm định FDR (support ≥ 1%)",921,> 0,đạt,Báo cáo giữ 25 luật mạnh nhất sau khi bỏ luật thừa
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,Số mẫu tuần tự có ý nghĩa / số kiểm định,67/4637,tham khảo,tham khảo,Sau hiệu chỉnh nhiều kiểm định
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,ROC-AUC tháng 3 (LightGBM),0.8700629674707527,"0,5 ngẫu nhiên; > 0,8 tốt",đạt,Khả năng xếp hạng khách theo rủi ro
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,PR-AUC (average precision) tháng 3,0.6031416615313718,ngẫu nhiên = 0.090; ≥ 3 lần là tốt,đạt,Chất lượng khi tìm khách rời bỏ (lớp hiếm)
+2. Chất lượng kỹ thuật,Bản thân từng kỹ thuật có cho kết quả tốt không?,Log-loss tháng 3 (LightGBM),0.2022821565497901,dự báo theo tỉ lệ chung = 0.302,đạt,Chất lượng xác suất (phạt nặng dự báo tự tin mà sai)
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Ổn định phân cụm (ARI bootstrap),0.9961816585958134,"≥ 0,8 ổn định; 0,6–0,8 vừa",đạt,Chạy lại trên mẫu khác có ra cùng cách chia
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Cụm kém ổn định nhất (Jaccard),0.4748714909036978,"≥ 0,75 ổn định; < 0,5 không ổn định",chưa đạt,Nhóm yếu nhất có được tìm lại
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Phân cụm lại ở tháng 2 (ARI),0.7220102880274578,"≥ 0,8",chưa đạt,Cấu trúc nhóm lặp lại ở tháng khác
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Tương quan lift luật train – holdout,0.998838605807893,"≥ 0,9",đạt,Luật đúng trên dữ liệu chưa dùng để tìm
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Luật giữ hướng ở tháng 2,0.9705882352941176,"≥ 0,9",đạt,Luật lặp lại ở tháng khác
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Mẫu tuần tự giữ hướng ở tháng 2,1.0,"≥ 0,9",đạt,Chuỗi lặp lại ở tháng khác
+3. Độ tin cậy,Kết quả có giữ được trên dữ liệu chưa thấy và ở tháng khác không?,Khoảng tin cậy 95% ROC-AUC,0.869–0.871,càng hẹp càng chắc,tham khảo,Độ bất định của kết quả mô hình
+4. Phân biệt rủi ro,Có tách được khách rủi ro cao khỏi khách rủi ro thấp không?,Chênh lệch tỉ lệ rời bỏ giữa các nhóm,0.8080724338816214,càng lớn càng có ích,đạt,Phân nhóm có ý nghĩa về rủi ro
+4. Phân biệt rủi ro,Có tách được khách rủi ro cao khỏi khách rủi ro thấp không?,Lift cao nhất của luật (holdout),9.314859063823494,> 2 mạnh,đạt,Nhóm khách rủi ro nhất gấp bao nhiêu lần bình thường
+4. Phân biệt rủi ro,Có tách được khách rủi ro cao khỏi khách rủi ro thấp không?,Lift của luật “an toàn” nhất (holdout),0.2045669236072914,"< 0,5 rõ rệt",tham khảo,Nhóm khách ít rủi ro nhất
+4. Phân biệt rủi ro,Có tách được khách rủi ro cao khỏi khách rủi ro thấp không?,Lift ở top 10% (mô hình),6.088056796060918,> 3 tốt,đạt,Danh sách 10% rủi ro nhất tốt gấp bao nhiêu lần chọn ngẫu nhiên
+5. Độ phủ và tính hành động,Các phát hiện bao trùm được bao nhiêu phần vấn đề?,Khách rời bỏ được 5 luật đầu bao phủ,0.3568456811328677,càng cao càng tốt,tham khảo,Bắt được phần này khi chỉ gắn cờ 5.1% khách (tỉ lệ rời bỏ 63.1%)
+5. Độ phủ và tính hành động,Các phát hiện bao trùm được bao nhiêu phần vấn đề?,Khách rời bỏ nằm trong các nhóm rủi ro hơn trung bình,0.505942974922707,càng cao càng tốt,tham khảo,Các nhóm này chiếm 15.3% tổng số khách
+5. Độ phủ và tính hành động,Các phát hiện bao trùm được bao nhiêu phần vấn đề?,Recall ở top 10% (mô hình),0.6088056796060919,ngẫu nhiên = 10%,đạt,Liên hệ 10% khách thì tiếp cận được bao nhiêu khách sẽ rời bỏ (CI 95% 0.606–0.612)
+5. Độ phủ và tính hành động,Các phát hiện bao trùm được bao nhiêu phần vấn đề?,Precision ở top 10% (mô hình),0.547571475652962,ngẫu nhiên = 0.090,tham khảo,"Trong số khách được liên hệ, bao nhiêu thật sự sắp rời đi (CI 95% 0.544–0.551)"
+6. Giá trị kinh doanh và vận hành,Áp dụng thật thì có lợi và có bền không?,Lãi ròng tối ưu/tháng (giả định cứu được 20%),6471921.95299915,> 0 và > chọn ngẫu nhiên,đạt,"Khi liên hệ 11% khách rủi ro nhất; chọn ngẫu nhiên cùng số khách: -1,523,078 NTD"
+6. Giá trị kinh doanh và vận hành,Áp dụng thật thì có lợi và có bền không?,Sai số hiệu chuẩn (ECE),0.02579680024222459,"< 0,02 tốt",chưa đạt,Xác suất dự báo có dùng trực tiếp được không
+6. Giá trị kinh doanh và vận hành,Áp dụng thật thì có lợi và có bền không?,Đánh giá quá cao nếu chỉ kiểm tra cùng tháng (ΔAUC),0.03165243158594688,càng nhỏ càng tốt,tham khảo,Hậu quả của dữ liệu thay đổi theo thời gian
+6. Giá trị kinh doanh và vận hành,Áp dụng thật thì có lợi và có bền không?,"Số đặc trưng thay đổi đáng kể giữa 2 tháng (PSI > 0,1)",2,"PSI < 0,1 ổn định; 0,1–0,25 thay đổi vừa; > 0,25 thay đổi lớn",tham khảo,Thay đổi lớn nhất: days_since_first_tx (PSI 0.86)
+6. Giá trị kinh doanh và vận hành,Áp dụng thật thì có lợi và có bền không?,Thời gian chạy các bước khai phá chính (phút),27.275410203933713,chạy được trên máy cá nhân 16 GB,tham khảo,Chưa gồm tạo đặc trưng (~6 phút) và đọc dữ liệu lần đầu (~13 phút)
+7. Khả năng giải thích,Người làm kinh doanh có hiểu và dùng được không?,Số nhóm khách,8,3–8 nhóm dễ dùng,đạt,Đủ ít để thiết kế chương trình riêng
+7. Khả năng giải thích,Người làm kinh doanh có hiểu và dùng được không?,Độ dài trung bình của luật (số điều kiện),1.96,≤ 3 dễ hiểu,đạt,Luật dạng “nếu … thì …” ngắn
+7. Khả năng giải thích,Người làm kinh doanh có hiểu và dùng được không?,Độ dài trung bình của chuỗi (số bước),2.3666666666666667,≤ 4,tham khảo,"Chuỗi sự kiện ngắn, dễ theo dõi"
+7. Khả năng giải thích,Người làm kinh doanh có hiểu và dùng được không?,Số yếu tố chiếm 80% ảnh hưởng (SHAP),13,càng ít càng dễ giải thích,tham khảo,

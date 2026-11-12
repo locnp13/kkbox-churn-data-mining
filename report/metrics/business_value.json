@@ -1,0 +1,63 @@
+{
+  "prior_train": 0.06392287077349786,
+  "prior_em_estimate": 0.06451825184902191,
+  "prior_actual": 0.08994191315811156,
+  "em_iterations": 17,
+  "calibration": [
+    {
+      "version": "original (feb prior)",
+      "mean_pred": 0.06414511291588697,
+      "actual_rate": 0.08994191315811156,
+      "brier": 0.053824470486235176,
+      "log_loss": 0.2022821565497901,
+      "ece": 0.02579680024222459
+    },
+    {
+      "version": "EM prior-shift corrected",
+      "mean_pred": 0.06451832938199346,
+      "actual_rate": 0.08994191315811156,
+      "brier": 0.05377014835937786,
+      "log_loss": 0.2020284299660896,
+      "ece": 0.025423583776118096
+    },
+    {
+      "version": "oracle: true mar prior (not deployable)",
+      "mean_pred": 0.0794788298304908,
+      "actual_rate": 0.08994191315811156,
+      "brier": 0.05242630344316798,
+      "log_loss": 0.19548873544518539,
+      "ece": 0.011500550484934653
+    }
+  ],
+  "assumptions": {
+    "contact_cost_ntd": 5.0,
+    "discount_share_of_month": 0.2,
+    "value_months": 6.0,
+    "success_rates": [
+      0.1,
+      0.2,
+      0.3
+    ]
+  },
+  "median_arpu_ntd": 149.0,
+  "optimum": [
+    {
+      "success_rate": 0.1,
+      "share_contacted": 0.08,
+      "net_value_ntd": 2452004.9304101802,
+      "churners_reached": 0.5555364708576663
+    },
+    {
+      "success_rate": 0.2,
+      "share_contacted": 0.11,
+      "net_value_ntd": 6471921.95299915,
+      "churners_reached": 0.6293255467765946
+    },
+    {
+      "success_rate": 0.3,
+      "share_contacted": 0.15,
+      "net_value_ntd": 11039606.387473587,
+      "churners_reached": 0.6934730333218825
+    }
+  ]
+}

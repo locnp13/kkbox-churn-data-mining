@@ -1,0 +1,14 @@
+{
+  "base_mar": 0.08994191315811156,
+  "base_feb": 0.06392287077349786,
+  "k": 8,
+  "segment_lift_spearman": 0.880952380952381,
+  "segment_share_max_abs_diff": 0.005361384714440753,
+  "ari_feb_refit_vs_mar_model": 0.7220102880274578,
+  "centroid_match_mean_dist": 0.4777675210833439,
+  "centroid_spread_mean_dist": 3.5694860160506283,
+  "rules_checked": 34,
+  "rule_log_lift_pearson": 0.9495549449057039,
+  "rule_share_same_direction": 0.9705882352941176,
+  "rule_share_lift_ge_1_5_feb": 0.92
+}

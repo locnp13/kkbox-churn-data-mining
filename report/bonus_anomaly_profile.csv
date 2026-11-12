@@ -1,0 +1,13 @@
+,anomaly,normal
+n_tx,1.0,17.0
+n_cancel,0.0,0.0
+auto_renew_rate,0.0,1.0
+discount_rate,0.0,0.0
+last_paid,894.0,149.0
+last_plan_days,200.0,30.0
+total_paid,1788.0,1937.0
+active_days,11.0,25.0
+total_hours,10.31804111111111,29.146160555555554
+avg_unique_songs,22.0,20.428571428571427
+skip_ratio,0.19158096528626734,0.15873015873015872
+complete_ratio,0.681070410846895,0.7315789473684211

@@ -1,0 +1,51 @@
+{
+  "n_metrics": 37,
+  "n_pass": 19,
+  "n_fail": 5,
+  "rule_coverage_top5": {
+    "top_k_rules": 5.0,
+    "share_users_flagged": 0.05090151327895416,
+    "share_churners_covered": 0.3568456811328677,
+    "churn_rate_in_flagged": 0.6305388817697444
+  },
+  "segment_churner_coverage": 0.505942974922707,
+  "segment_user_share": 0.15330291670099694,
+  "n_features_psi_gt_0_1": 2,
+  "top_drift": [
+    {
+      "feature": "days_since_first_tx",
+      "type": "số",
+      "psi": 0.858928494904031,
+      "missing_feb": 0.0021099149890576483,
+      "missing_mar": 0.002599489165362116
+    },
+    {
+      "feature": "days_since_last_tx",
+      "type": "số",
+      "psi": 0.10781545055651312,
+      "missing_feb": 0.0021099149890576483,
+      "missing_mar": 0.002599489165362116
+    },
+    {
+      "feature": "n_tx_180d",
+      "type": "số",
+      "psi": 0.043456989238172344,
+      "missing_feb": 0.0,
+      "missing_mar": 0.0
+    },
+    {
+      "feature": "discount_rate",
+      "type": "số",
+      "psi": 0.018033288530226017,
+      "missing_feb": 0.002880361273844809,
+      "missing_mar": 0.0029568674301722006
+    },
+    {
+      "feature": "days_since_last_listen",
+      "type": "số",
+      "psi": 0.013474948810226468,
+      "missing_feb": 0.19707210269394349,
+      "missing_mar": 0.19411098294471452
+    }
+  ]
+}

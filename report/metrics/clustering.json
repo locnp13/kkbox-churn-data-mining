@@ -1,0 +1,92 @@
+{
+  "features": [
+    "n_tx",
+    "n_cancel",
+    "auto_renew_rate",
+    "discount_rate",
+    "last_plan_days",
+    "last_paid",
+    "days_to_expire",
+    "tenure_days",
+    "active_days",
+    "complete_ratio",
+    "avg_unique_songs",
+    "listen_trend",
+    "days_since_last_listen"
+  ],
+  "dropped_redundant": [
+    "total_hours",
+    "skip_ratio",
+    "weekly_cv"
+  ],
+  "n_users": 200000,
+  "n_loggers": 782486,
+  "n_nolog": 188474,
+  "k": 7,
+  "k_macro": 3,
+  "nolog_id": 7,
+  "silhouette_macro": 0.24258120501130184,
+  "silhouette": 0.2118498327193212,
+  "davies_bouldin": 1.3635289910601867,
+  "calinski_harabasz": 1527.0809712829555,
+  "stability_ari": 0.9961816585958134,
+  "stability_ari_sd": 0.0009656305833501646,
+  "jaccard_min_cluster": 0.4748714909036978,
+  "sil_tol": 0.75,
+  "ari_min": 0.8,
+  "k_max": 7,
+  "base_churn": 0.08994191315811156,
+  "names": {
+    "0": "Hay được giảm giá, từng hủy",
+    "1": "Nghe nhiều nhưng trả thủ công",
+    "2": "Trung thành: tự gia hạn, nghe nhiều",
+    "3": "Mua gói dài hạn, trả thủ công",
+    "4": "Mới hoặc quay lại, nghe tăng nhanh",
+    "5": "Nghe thưa, lâu chưa nghe",
+    "6": "Lâu năm, từng hủy hoặc đổi gói",
+    "7": "Không có nhật ký nghe (tách theo quy tắc)"
+  },
+  "algorithms": [
+    {
+      "algorithm": "K-Means",
+      "n_clusters": 7,
+      "noise_share": 0.0,
+      "silhouette": 0.208564393549565,
+      "davies_bouldin": 1.3804350660929217,
+      "ari_vs_kmeans": 1.0,
+      "churn_rate_spread": 0.7918551001225844,
+      "runtime_s": 0.0029289722442626953
+    },
+    {
+      "algorithm": "Agglomerative (Ward)",
+      "n_clusters": 7,
+      "noise_share": 0.0,
+      "silhouette": 0.18537571898543284,
+      "davies_bouldin": 1.472230066324977,
+      "ari_vs_kmeans": 0.7692654920879551,
+      "churn_rate_spread": 0.8009232561497912,
+      "runtime_s": 24.881303310394287
+    },
+    {
+      "algorithm": "Gaussian mixture",
+      "n_clusters": 7,
+      "noise_share": 0.0,
+      "silhouette": 0.1029502966759061,
+      "davies_bouldin": 3.2072287610133228,
+      "ari_vs_kmeans": 0.5244173438831314,
+      "churn_rate_spread": 0.7793716191849982,
+      "runtime_s": 3.0123045444488525
+    },
+    {
+      "algorithm": "HDBSCAN",
+      "n_clusters": 2,
+      "noise_share": 0.3212666666666667,
+      "silhouette": 0.19219094986117416,
+      "davies_bouldin": 1.5977265351080046,
+      "ari_vs_kmeans": 0.5306934465726011,
+      "churn_rate_spread": 0.011777267585622343,
+      "runtime_s": 8.405614614486694
+    }
+  ],
+  "runtime_s": 213.4968204498291
+}

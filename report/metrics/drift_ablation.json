@@ -1,0 +1,38 @@
+{
+  "drifting_features": [
+    "days_since_first_tx",
+    "days_since_last_tx"
+  ],
+  "results": [
+    {
+      "feature_set": "Tất cả đặc trưng",
+      "n_features": 36,
+      "auc_in_month": 0.9005973258565231,
+      "auc_out_of_time": 0.8700629674707527,
+      "gap": 0.030534358385770344,
+      "oot_delta_vs_all": 0.0,
+      "oot_delta_ci_low": 0.0,
+      "oot_delta_ci_high": 0.0
+    },
+    {
+      "feature_set": "Bỏ days_since_first_tx",
+      "n_features": 35,
+      "auc_in_month": 0.8998239703061222,
+      "auc_out_of_time": 0.8699992260268729,
+      "gap": 0.029824744279249304,
+      "oot_delta_vs_all": -6.374144387988334e-05,
+      "oot_delta_ci_low": -0.00032004590198480567,
+      "oot_delta_ci_high": 0.00015278881902229234
+    },
+    {
+      "feature_set": "Bỏ mọi đặc trưng PSI > 0,1 (2)",
+      "n_features": 34,
+      "auc_in_month": 0.8989430753516778,
+      "auc_out_of_time": 0.871126871653026,
+      "gap": 0.027816203698651787,
+      "oot_delta_vs_all": 0.001063904182273312,
+      "oot_delta_ci_low": 0.0007947620707375702,
+      "oot_delta_ci_high": 0.0013535735687053708
+    }
+  ]
+}
